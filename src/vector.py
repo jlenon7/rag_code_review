@@ -23,13 +23,10 @@ def ask(question, llm, embedding):
     ("user", "{input}")
   ])
 
-  document_chain = create_stuff_documents_chain(
-    llm=llm, 
-    prompt=prompt
-  )
+  document_chain = create_stuff_documents_chain(llm=llm, prompt=prompt)
   retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
-  result = retrieval_chain.invoke({"input": question, "context": documents})
+  result = retrieval_chain.invoke({ "input": question, "context": documents })
 
   return result, documents
 

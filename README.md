@@ -25,6 +25,16 @@ Now install all the project dependencies:
 make install-all
 ```
 
+Clone the repositories you want the model to code review:
+
+```shell
+make clone
+```
+
+You can change the repositories you want to clone inside `bin/clone.py`. Also take a look inside `bin/insert.py`
+when calling `load_code_folder_chunks()` function to verify which paths and code languages you want to include in
+the VectorDB. You can also define files that you want to exclude.
+
 Insert the file chunks in Chroma database by running:
 
 ```shell
